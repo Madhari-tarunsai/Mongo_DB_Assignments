@@ -46,7 +46,11 @@ app.put("/update/:id",async(req,res)=>{
     res.json(data)
     console.log(data)
 })
-
+app.delete("/deleteTodo/:id", async (req, res) => {
+  //   const data = await todosModel.findByIdAndDelete(req.params.id);
+  const data = await todosModel.deleteMany({ name: req.params.id });
+  res.json(data);
+});
 // employees details
 const employeeschema=new mongoose.Schema({
     emp_name:{type:String, required:true},
@@ -77,6 +81,11 @@ app.put("/update/:id",async(req,res)=>{
     res.json(data)
     console.log(data)
 })
+app.delete("/deleteTodo/:id", async (req, res) => {
+  //   const data = await todosModel.findByIdAndDelete(req.params.id);
+  const data = await todosModel.deleteMany({ name: req.params.id });
+  res.json(data);
+});
 
 // dempartment details
 const departschema=new mongoose.Schema({
@@ -101,5 +110,9 @@ app.put("/update/:id",async(req,res)=>{
     res.json(data)
     console.log(data)
 })
-
+app.delete("/deleteTodo/:id", async (req, res) => {
+  //   const data = await todosModel.findByIdAndDelete(req.params.id);
+  const data = await todosModel.deleteMany({ name: req.params.id });
+  res.json(data);
+});
 app.listen(4000, () => console.log("server is running on port number 4000"));
