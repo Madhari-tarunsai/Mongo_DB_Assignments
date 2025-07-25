@@ -76,10 +76,11 @@ app.get("/emp", async(req, res) => {
 
 app.put("/update/:id",async(req,res)=>{
     console.log(req.params.id)
+    const id = req.params.id
     console.log(req.body)
-    const data= await employee.findByIdAndUpdate(req.params.id, req.body, {new:true})
-    res.json(data)
+    const data = await employee.findByIdAndUpdate(id, req.body)
     console.log(data)
+    res.json(data)
 })
 app.delete("/deleteTodo/:id", async (req, res) => {
   //   const data = await todosModel.findByIdAndDelete(req.params.id);
